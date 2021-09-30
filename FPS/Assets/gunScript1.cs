@@ -4,23 +4,23 @@ public class gunScript1 : MonoBehaviour
 {
     public float damage = 10f;
     public float range = 100f;
-    public float fireRate = 15f;
-
+ 
     public Camera fpsCam;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
-    public float impactForce = 30f;
+    public float impactForce = 300f;
 
     private float nextTimeToFire = 0f;
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
+
+        
     }
-    
+
     void Shoot()
     {
         muzzleFlash.Play();
@@ -30,12 +30,12 @@ public class gunScript1 : MonoBehaviour
             Debug.Log(hit.transform.name);
 
             Target target = hit.transform.GetComponent<Target>();
-            if(target != null)
+            if (target != null)
             {
                 target.TakeDamage(damage);
             }
 
-            if(hit.rigidbody != null)
+            if (hit.rigidbody != null)
             {
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
