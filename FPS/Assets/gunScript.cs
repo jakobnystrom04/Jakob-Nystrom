@@ -19,6 +19,8 @@ public class gunScript : MonoBehaviour
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
+
+       
     }
     
     void Shoot()
