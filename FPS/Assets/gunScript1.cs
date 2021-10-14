@@ -9,8 +9,6 @@ public class gunScript1 : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
     public float impactForce = 300f;
-
-    private float nextTimeToFire = 0f;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -27,21 +25,24 @@ public class gunScript1 : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
-
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
+            if (hit.transform.name != ("First Person Player"))
             {
-                target.TakeDamage(damage);
-            }
+                Debug.Log(hit.transform.name);
 
-            if (hit.rigidbody != null)
-            {
-                hit.rigidbody.AddForce(-hit.normal * impactForce);
-            }
+                Target target = hit.transform.GetComponent<Target>();
+                if (target != null)
+                {
+                    target.TakeDamage(damage);
+                }
 
-            GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(impactGO, 1f);
+                if (hit.rigidbody != null)
+                {
+                    hit.rigidbody.AddForce(-hit.normal * impactForce);
+                }
+
+                GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactGO, 1f);
+            }
         }
     }
 }

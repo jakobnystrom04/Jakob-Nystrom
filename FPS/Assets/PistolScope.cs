@@ -15,13 +15,14 @@ public class PistolScope : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Den flyttar vapnet
         if (Input.GetButtonDown("Fire2"))
         {
             transform.Translate(Vector3.left * LeftMove);
             transform.Translate(Vector3.back * BackMove);
 
         }
-
+        //Den flyttar tillbaka vapnet.
         if (Input.GetButtonUp("Fire2"))
         {
             transform.Translate(Vector3.right * LeftMove);

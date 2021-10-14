@@ -16,6 +16,7 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //När musen flyttas så roterar spelaren längs med, och även låser så man inte kan rotera mer än 90 grader längs med x-axeln.
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 

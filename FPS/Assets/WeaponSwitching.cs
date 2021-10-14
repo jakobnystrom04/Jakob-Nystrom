@@ -14,6 +14,7 @@ public class WeaponSwitching : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Beroende på vad du trycker antingen byts vapnet eller stannar som samma.
         int previousSelectedWeapon = selectedWeapon;
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
@@ -50,6 +51,8 @@ public class WeaponSwitching : MonoBehaviour
             SelectWeapon();
         }
     }
+
+    //SelecWeapon gör så att numret vi får tidigare görs om till vilket vapen vi ska använda.
     void SelectWeapon()
     {
         int i = 0;

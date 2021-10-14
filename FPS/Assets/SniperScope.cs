@@ -5,8 +5,8 @@ using UnityEngine;
 public class SniperScope : MonoBehaviour
 {
     private float LeftMove = 0.5f;
-    private float BackMove = 0.65f;
-    private float upMove = 0.112f;
+    private float BackMove = 0.47f;
+    private float upMove = 0.108f;
     // Start is called before the first frame update
     void Start()
     {
