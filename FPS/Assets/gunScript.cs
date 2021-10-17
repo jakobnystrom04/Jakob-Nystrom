@@ -39,7 +39,7 @@ public class gunScript : MonoBehaviour
                     target.TakeDamage(damage);
                 }
 
-                if (hit.rigidbody != null)
+                if (hit.rigidbody != null && hit.transform.name != ("Sphere") && hit.transform.name != ("Sphere(Clone)"))
                 {
                     hit.rigidbody.AddForce(-hit.normal * impactForce);
                 }
