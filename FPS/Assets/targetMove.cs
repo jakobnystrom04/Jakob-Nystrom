@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class targetMove : MonoBehaviour
 {
     private GameObject wayPoint;
     private Vector3 wayPointPos;
+
 
     private float speed = 2.0f;
     // Start is called before the first frame update
@@ -21,4 +23,6 @@ public class targetMove : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, wayPointPos, speed * Time.deltaTime);
     }
+
+    
 }
