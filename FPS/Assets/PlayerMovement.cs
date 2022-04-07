@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 3f;
     public float bastianHeight;
     float normalHeight;
+    float dash = 0;
+    float dashTime = 1;
+    float dashCooldown = -5;
+    float dashDurationA = -10;
 
     Vector3 velocity;
 
@@ -37,7 +41,27 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        
+
+        dashTime = Time.time - dash;
+
+        if (Time.time - dashCooldown >= 5)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+            dashCooldown = Time.time;
+            dash = 0;
+            dashDurationA = Time.time;  
+            }
+        }
+
+        if (Time.time - dashDurationA <= 3)
+        {
+            speed = 20f;
+        }
+        else
+        {
+            speed = 12f;
+        }
         //Detta skriptet, kollar ifall du står på marken, sedan sätter den så att man inte accelererar neråt, den skaffar z-axel och x-axel, så att man sedan kan flytta längs de axlarna, den sätter sedan in en jump-funktion för att kunna hoppa och sedan falla.
 
         isGrounded = Physics.CheckSphere(GroundCheck.position, groundDistance, groundMask);
@@ -64,13 +88,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            speed = 160000000f;
+            //speed = 160000000f;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speed = 12f;
+            //speed = 12f;
         }
 
+        
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             speed = 4f;
@@ -82,6 +107,9 @@ public class PlayerMovement : MonoBehaviour
             speed = 12f;
             UnBastian();
         }
+
+
+        
     }
     void Bastian()
     {
@@ -92,4 +120,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerCtrl.height = normalHeight;
     }
+
+
+
 }
