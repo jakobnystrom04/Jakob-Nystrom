@@ -14,14 +14,17 @@ public class targetMove : MonoBehaviour
     void Start()
     {
         wayPoint = GameObject.Find("wayPoint");
+        //Bestämmer en waypoint
     }
 
     // Update is called once per frame
     void Update()
     {
         wayPointPos = new Vector3(wayPoint.transform.position.x, wayPoint.transform.position.y, wayPoint.transform.position.z);
+        //hittar positionen av waypoint
 
         transform.position = Vector3.MoveTowards(transform.position, wayPointPos, speed * Time.deltaTime);
+        //flyttar objekt mot din waypoint
     }
 
     

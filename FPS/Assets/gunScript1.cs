@@ -11,7 +11,8 @@ public class gunScript1 : MonoBehaviour
     public float impactForce = 300f;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        //Om du vänsterklickar så triggas Shoot
         {
             Shoot();
         }
@@ -21,6 +22,7 @@ public class gunScript1 : MonoBehaviour
 
     void Shoot()
     {
+        //Funktionen ansvarar för funktionen av vapnet, animation spelas, den registrerar vad som blir träffat och gör skada på det
         muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))

@@ -15,9 +15,12 @@ public class gunScript : MonoBehaviour
     void Update()
     {
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        //Ifall du vänsterklickar och din cooldown har gått ner
         {
             nextTimeToFire = Time.time + 1f / fireRate;
+            //Startar cooldown
             Shoot();
+            //startar funktionen Shoot
         }
 
        
@@ -25,6 +28,7 @@ public class gunScript : MonoBehaviour
     
     void Shoot()
     {
+        //Funktionen ansvarar för funktionen av vapnet, animation spelas, den registrerar vad som blir träffat och gör skada på det.
         muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))

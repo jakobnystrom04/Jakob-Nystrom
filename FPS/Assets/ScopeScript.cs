@@ -19,6 +19,7 @@ public class ScopeScript : MonoBehaviour
         {
             transform.Translate(Vector3.left * LeftMove);
             transform.Translate(Vector3.back * BackMove);
+            //Om du högerklickar flyttas scope till kameran
 
         }
 
@@ -26,6 +27,7 @@ public class ScopeScript : MonoBehaviour
         {
             transform.Translate(Vector3.right * LeftMove);
             transform.Translate(Vector3.forward * BackMove);
+            //När du släpper högerklick flyttas scopet tillbaka
         }
     }
 }

@@ -21,6 +21,7 @@ public class SniperScope : MonoBehaviour
             transform.Translate(Vector3.back * LeftMove);
             transform.Translate(Vector3.right * BackMove);
             transform.Translate(Vector3.up * upMove);
+            //När du högerklickar flyttas scopet till kameran
         }
 
         if (Input.GetButtonUp("Fire2"))
@@ -28,6 +29,7 @@ public class SniperScope : MonoBehaviour
             transform.Translate(Vector3.forward * LeftMove);
             transform.Translate(Vector3.left * BackMove);
             transform.Translate(Vector3.down * upMove);
+            //När du släpper högerklick flyttas scopet tillbaka
         }
     }
 }

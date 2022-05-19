@@ -17,12 +17,15 @@ public class ActualScope1 : MonoBehaviour
     void Update()
     {
         if (Input.GetButton("Fire2"))
+        //Ifall du högerklickar
         {
             Camera.main.fieldOfView = 15;
+            //Kamera zoomar in
         }
         else
         {
             Camera.main.fieldOfView = 60;
+            //Kamera zoomar ut
         }
     }
 }
